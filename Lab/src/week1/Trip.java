@@ -20,7 +20,7 @@ public class Trip {
         this.wheelDiameter_ = wheelDiameter;
     }
 
-    void run() {
+    void readFile() {
         Double tempTime, tempSpeed;
         EasyReader myFile = null;
 
