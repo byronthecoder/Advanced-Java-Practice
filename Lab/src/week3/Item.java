@@ -6,31 +6,53 @@
 *
 */
 package week3;
-  public class Item 
-  {
-	public Item(String n, double p) {
-	name = n; price = p;
-	}
+
+import java.lang.reflect.Field;
+
+public class Item {
+	  // instance fields//
+
+    private final double price;
+    private final String name;
+
+    public Item(String n, double p) {
+          name = n;
+          price = p;
+    }
+
+    public String getName() { return name; }
+
+    public double getPrice() { return price; }
 	
-	public String getName() { return name; }
-	public double getPrice() { return price; }
-	
-        // using ukp to denote pounds sterling as unicode pound symbol 
-        // does not display properly in MS Command Window  
-	public String toString() { return (name + " = ukp" + price); }
+    // using ukp to denote pounds sterling as unicode pound symbol
+    // does not display properly in MS Command Window
+    @Override
+    public String toString() {
+        StringBuilder sb = new StringBuilder();
+        sb.append(name).append(" = ukp").append(price)
+                .append(", class type = ").append(this.getClass().getTypeName())
+                .append(", object name = ").append(this.getName())
+                .append(", instance fields = { ");
+
+        Field[] fields = getClass().getDeclaredFields();
+        for (Field field : fields) {
+            sb.append(field.getName()).append("  ");
+        }
+        sb.append(" }");
+
+        return sb.toString();
+    }
 		
 	// equals method to be added here
-	//public boolean equals(Object obj) {
-		// check if identical objects
-		// must be false if parameter is null
-		// must be false if objects have different classes
-		// now we can cast and do something specific for Item
-		//}
+    @Override
+    public boolean equals(Object obj) {
+        
+    }
 		
-	// instance fields
-	private final double price;
-	private final String name;
-	
+
+
+
+
 	public static void main( String[] args){
 		String TESTNAME = "testObject";
 		double TESTPRICE = 10.0;

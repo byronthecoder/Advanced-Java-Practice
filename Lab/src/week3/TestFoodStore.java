@@ -7,20 +7,21 @@ import java.util.Scanner;
 
 public class TestFoodStore {
     public static void main(String[] args) throws InputMismatchException {
-//--------------------------Part Two-----------------------------//
+//----------------------------Task 1-------------------------------//
+        // Task 1.1
         FoodStore myFoodStore = new FoodStore(10);
         System.out.println("Contains " + myFoodStore.getAmountStored());
 
+        // Task 1.2
         // test the depositFood method
         myFoodStore.depositFood(2);
         System.out.println("Contains " + myFoodStore.getAmountStored());
-
         // test the withdrawFood method
         myFoodStore.withdrawFood(4);
         System.out.println("Contains " + myFoodStore.getAmountStored());
 
 
-        //task part 3
+        // Task 1.3
         int input;
         boolean flag = true;
         System.out.println("Enter the amount of food you want to deposite with '+' or withdraw with '-' before the number.");
